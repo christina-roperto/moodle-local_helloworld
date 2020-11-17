@@ -6,11 +6,13 @@ require_once('../../config.php');
 <body>
 
 <?php if ($_SERVER['REQUEST_METHOD'] == "POST"): ?>
-<?php
+
+    <?php
     $home = new moodle_url('/');
     $hello_world = new moodle_url('/local/helloworld');
+    $name = optional_param("name", "x", PARAM_NOTAGS);
     ?>
-    <h1>Hello <?php echo $_POST["name"]; ?></h1>
+    <h1>Hello <?php echo $name; ?></h1>
     <ul>
         <li><a href="<?php echo $home->out(); ?>">Go to the site front page</a></li>
         <li><a href="<?php echo $hello_world->out(); ?>">Back to the Hello world main page</a></li>
