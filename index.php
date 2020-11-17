@@ -1,11 +1,19 @@
+<?php
+require_once('../../config.php');
+?>
+
 <html>
 <body>
 
 <?php if ($_SERVER['REQUEST_METHOD'] == "POST"): ?>
+<?php
+    $home = new moodle_url('/');
+    $hello_world = new moodle_url('/local/helloworld');
+    ?>
     <h1>Hello <?php echo $_POST["name"]; ?></h1>
     <ul>
-        <li><a href="/">Go to the site front page</a></li>
-        <li><a href="index.php">Back to the Hello world main page</a></li>
+        <li><a href="<?php echo $home->out(); ?>">Go to the site front page</a></li>
+        <li><a href="<?php echo $hello_world->out(); ?>">Back to the Hello world main page</a></li>
     </ul>
 
 <?php else: ?>
